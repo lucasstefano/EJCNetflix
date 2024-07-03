@@ -4,7 +4,7 @@ import UserServices from '../../services/userServices/index';
 import ArrowRight from '../../assets/Vector.svg';
 import styled from 'styled-components';
 import EditThumbnail from '../../components/Edit Thumb';
-import { Container, ReturnArrow, SubMessage, ThumbnailContainer } from './style';
+import { Container, ReturnArrow, RightSide, SubMessage, ThumbnailContainer } from './style';
 
 //
 const UpdateClassForm = () => {
@@ -30,7 +30,7 @@ const UpdateClassForm = () => {
   }, []);
 
   return (
-    <>
+    <RightSide>
       <Container>
         <a href="/">
           <ReturnArrow src={ArrowRight} />
@@ -48,7 +48,7 @@ const UpdateClassForm = () => {
           />
         ))}
       </ThumbnailContainer>
-    </>
+      </RightSide>
   );
 };
 
