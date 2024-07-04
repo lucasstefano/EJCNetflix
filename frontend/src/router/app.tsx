@@ -4,6 +4,7 @@ import Home from '../pages/home-design';
 import HomeDev from '../pages/home-dev';
 import EditPage from '../pages/editpage';
 import ModelForms from '../pages/EditInputs';
+import Editevd from '../pages/EditInputs copy';
 
 export default function App(){
   return (
@@ -14,6 +15,7 @@ export default function App(){
         <Route path="/Design" element={<Home />} />
         <Route path="/Edit" element={<EditPage />} />
         <Route path="/update/:id" element={<ModelForms />} />
+        <Route path="/editado/:id" element={<Editevd />} />
       </Routes>
     </Router>
   );

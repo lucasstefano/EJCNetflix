@@ -69,7 +69,7 @@ export default function HomeDev() {
             <YoutubeComponent LinkVD={theLink} />
     
             <ScrollingCarousel>
-                    {SemanaTres.map((item, index) => (
+                    {[...SemanaUm, ...SemanaDois, ...SemanaTres].map((item, index) => (
                         <MiniThumb key={index} Title={item.title} Monitor={item.monitor} Image={item.image} Link={item.ytLink} PDF={item.pdfLink} Lock = {item.lock} onGo={changeLink}/>
                     ))}
                 </ScrollingCarousel>
