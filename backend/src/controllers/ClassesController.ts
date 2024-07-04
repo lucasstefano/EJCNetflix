@@ -40,20 +40,32 @@ export const deleteClass = async (req: Request, res: Response) => {
 
 // Encontrar Aula por Área (Dev, ou Design)
 export const findClassesByType = async (req: Request, res: Response) => {
-  const type = req.params.type; // Captura o tipo a partir dos parâmetros da requisição
+  const { type } = req.params; // Captura o tipo a partir dos parâmetros da requisição
+
+  if (!type) {
+    return res.status(400).json({ error: 'Type parameter is required' });
+  }
 
   try {
     const classes = await prisma.classes.findMany({
       where: {
-        type: type,
+        OR: [
+          { type: type },
+          { type: 'Ambos' },
+        ],
       },
     });
+
+    if (classes.length === 0) {
+      return res.status(404).json({ message: `No classes found for type ${type}` });
+    }
+
     res.status(200).json(classes);
   } catch (error) {
+    console.error(`Error fetching ${type} classes:`, error);
     res.status(500).json({ error: `Error fetching ${type} classes` });
   }
-}
-
+};
 // Encontra Area por Id
 export const findClassById = async (req: Request, res: Response) => {
   const classId = parseInt(req.params.id); // Captura o ID a partir dos parâmetros da requisição
@@ -88,33 +100,24 @@ export const getAllClasses = async (req: Request, res: Response) => {
 
 // Atualizar Aula
 export const updateTTClass = async (req: Request, res: Response) => {
-  const { id } = req.params;
-  const { type, title, monitor, ytLink, pdfLink, lock, data } = req.body;
-  
+ 
+  const { id, type, title, monitor, ytLink, pdfLink, lock, data } = req.body;
+
   try {
-    const updateData: any = {
-      type,
-      title,
-      monitor,
-      ytLink,
-      pdfLink,
-      lock,
-      data,
-    };
-
-    if (req.file) {
-      updateData.imageUrl = req.file.path; // Caminho da imagem no servidor
-    }
-
     const updatedClass = await prisma.classes.update({
       where: { id: parseInt(id) },
-      data: updateData,
+      data: {
+        type,
+        title,
+        monitor,
+        ytLink,
+        pdfLink,
+        lock,
+        data,
+      },
     });
-
     res.json(updatedClass);
-    console.log(updatedClass);
   } catch (error) {
-    console.error('Erro ao atualizar aula:', error);
-    res.status(500).json({ error: 'Erro ao atualizar aula' });
+    res.status(500).json({ error: 'Erro ao atualizar a classe' });
   }
 };

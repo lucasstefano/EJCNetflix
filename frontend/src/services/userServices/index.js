@@ -20,7 +20,8 @@ export default {
     },
     async ChangeClass(Classid,data) {
         try {
-            api.put(`/classes/:${Classid}`, data);
+            api.put(`/updateClass/:${Classid}`, data);
+            console.log(data)
         } catch (err) {
             console.log(err)
         }

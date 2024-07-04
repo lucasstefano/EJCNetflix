@@ -15,7 +15,7 @@ router.get('/findClassesByType/:type', findClassesByType)
 router.get('/findClassesById/:id',findClassById)
 
 // Rota para fazer mudança na aula
-router.put('/updateClass/:id', uploadPhoto.single('image'), updateTTClass)
+router.put('/updateClass/:id', updateTTClass)
 
 
 export default router;
