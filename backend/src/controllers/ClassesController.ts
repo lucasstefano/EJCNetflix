@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-// Create a new class
+// Criar Aula
 export const createTTClass = async (req: Request, res: Response) => {
   const { type, title, monitor, ytLink, pdfLink, lock, data } = req.body;
   try {
@@ -25,7 +25,7 @@ export const createTTClass = async (req: Request, res: Response) => {
   }
 };
 
-// Delete an existing class
+// Deletar uma Aula
 export const deleteClass = async (req: Request, res: Response) => {
   const classId = parseInt(req.params.id);
   try {
@@ -38,7 +38,7 @@ export const deleteClass = async (req: Request, res: Response) => {
   }
 }
 
-// Find classes by type
+// Encontrar Aula por Área (Dev, ou Design)
 export const findClassesByType = async (req: Request, res: Response) => {
   const type = req.params.type; // Captura o tipo a partir dos parâmetros da requisição
 
@@ -54,7 +54,7 @@ export const findClassesByType = async (req: Request, res: Response) => {
   }
 }
 
-// Find classes by id
+// Encontra Area por Id
 export const findClassById = async (req: Request, res: Response) => {
   const classId = parseInt(req.params.id); // Captura o ID a partir dos parâmetros da requisição
 
@@ -76,7 +76,7 @@ export const findClassById = async (req: Request, res: Response) => {
 };
 
 
-// Find All Classes
+// Encontrar todas Aulas
 export const getAllClasses = async (req: Request, res: Response) => {
   try {
     const classes = await prisma.classes.findMany();
@@ -86,7 +86,7 @@ export const getAllClasses = async (req: Request, res: Response) => {
   }
 }
 
-// Update an existing class
+// Atualizar Aula
 export const updateTTClass = async (req: Request, res: Response) => {
   const { id } = req.params;
   const { type, title, monitor, ytLink, pdfLink, lock, data } = req.body;
