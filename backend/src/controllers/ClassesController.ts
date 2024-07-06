@@ -100,8 +100,12 @@ export const getAllClasses = async (req: Request, res: Response) => {
 
 // Atualizar Aula
 export const updateTTClass = async (req: Request, res: Response) => {
- 
-  const { id, type, title, monitor, ytLink, pdfLink, lock, data } = req.body;
+  const id = req.params.id;
+  const { type, title, monitor, ytLink, pdfLink, lock, data } = req.body;
+  let imageUrl = '';
+  if (req.file) {
+    imageUrl = req.file.path; // Caminho da imagem salva pelo Multer
+  }
 
   try {
     const updatedClass = await prisma.classes.update({
@@ -114,8 +118,10 @@ export const updateTTClass = async (req: Request, res: Response) => {
         pdfLink,
         lock,
         data,
+        imageUrl,
       },
     });
+    console.log(updatedClass)
     res.json(updatedClass);
   } catch (error) {
     res.status(500).json({ error: 'Erro ao atualizar a classe' });

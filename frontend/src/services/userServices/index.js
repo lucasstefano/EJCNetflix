@@ -18,9 +18,9 @@ export default {
             console.log(err)
         }
     },
-    async ChangeClass(Classid,data) {
+    async ChangeClass(Classid,data, config) {
         try {
-            api.put(`/updateClass/:${Classid}`, data);
+            api.put(`/updateClass/${Classid}`, data,config);
             console.log(data)
         } catch (err) {
             console.log(err)
