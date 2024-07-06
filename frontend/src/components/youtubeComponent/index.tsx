@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import YouTube, { YouTubeProps } from 'react-youtube';
 
 interface YoutubeComponentProps {
-  LinkVD: string;
+  LinkVideo: string;
 }
 
-const YoutubeComponent: React.FC<YoutubeComponentProps> = ({ LinkVD }) => {
+const YoutubeComponent: React.FC<YoutubeComponentProps> = ({ LinkVideo }) => {
   const [windowDimensions, setWindowDimensions] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -30,7 +30,7 @@ const YoutubeComponent: React.FC<YoutubeComponentProps> = ({ LinkVD }) => {
     height: String(windowDimensions.height * 0.7), // Ajusta a altura para 50% da altura da janela
     width: String(windowDimensions.width * 0.8), // Ajusta a largura para 80% da largura da janela
     playerVars: {
-      autoplay: 1,
+      autoplay: 0,
     },
   };
 
@@ -39,7 +39,7 @@ const YoutubeComponent: React.FC<YoutubeComponentProps> = ({ LinkVD }) => {
   };
 
   return (
-    <YouTube videoId={LinkVD} opts={opts} onReady={onPlayerReady} />
+    <YouTube videoId={LinkVideo} opts={opts} onReady={onPlayerReady} />
   );
 }
 

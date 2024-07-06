@@ -1,13 +1,14 @@
-import React from 'react';
-import { LockImg, ThumbnailBottom, ThumbnailButton, ThumbnailButtonContainer, ThumbnailContainer, ThumbnailIcon, ThumbnailImg, ThumbnailMonitor, ThumbnailTextContainer, ThumbnailTitle, ThumbnailView } from './styled';
+import React, { useEffect, useState } from 'react';
+import { LockImg, ThumbnailBottom, Image,ThumbnailButton, ThumbnailButtonContainer, ThumbnailContainer, ThumbnailIcon, ThumbnailMonitor, ThumbnailTextContainer, ThumbnailTitle, ThumbnailView, ImageLock, ThumbnailImg } from './styled';
 import Locked from '../../assets/fi_home.svg';
 import PlayerIcon from '../../assets/player-Icon.svg';
 import PresentationIcon from '../../assets/apresentacao-icon.svg';
+import userServices from '../../services/userServices';
 
 interface ThumbnailProps {
     Title: string;
     Monitor: string;
-    Image: any;
+    imageUrl: any;
     Link: string;
     PDF: string;
     Lock: string;
@@ -15,19 +16,30 @@ interface ThumbnailProps {
     EnviarLink: (Link: string) => void;
 }
 
-const Thumbnail: React.FC<ThumbnailProps> = ({ Title, Monitor, Image, Link, PDF, Lock, AbrirVideo, EnviarLink }) => {
+const Thumbnail: React.FC<ThumbnailProps> = ({ Title, Monitor, imageUrl, Link, PDF, Lock, AbrirVideo, EnviarLink }) => {
     const PdfLink = PDF;
+   
     const handleClick = () => {
         if (Lock !== 'bloqueado') {
             AbrirVideo();
             EnviarLink(Link);
         }
     };
+    const [imageApi, setImageApi] = useState('')
+    useEffect(() => {
+        userServices.getImage().then((response) => {
+          if (response) {
+          
+            setImageApi(response);
+          
+          }
+        });
+      }, []);
     return (
         <ThumbnailView>
             <ThumbnailContainer>
-                {Lock === 'bloqueado' ? (<LockImg src={Locked} />) : (null)}
-                <ThumbnailImg src={''} locked={Lock}></ThumbnailImg>
+                {Lock === 'bloqueado' ? (<ImageLock><LockImg src={Locked} /></ImageLock>) : (null)}
+                {imageUrl && (<Image src={`${imageApi}/${imageUrl}`}></Image>)}
 
             </ThumbnailContainer>
             <ThumbnailBottom>

@@ -5,7 +5,14 @@ export default {
     async CreateClass(data) {
         try {
             console.log(data)
-            api.post('/ttclasses', data)
+            api.post('/CreateClass', data)
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    async DeleteClass(id) {
+        try {
+            api.delete(`/DeleteClass/${id}`)
         } catch (err) {
             console.log(err)
         }
@@ -13,6 +20,14 @@ export default {
     async getAllAulas() {
         try {
             const response = api.get('/getAllClasses')
+            return response
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    async getImage() {
+        try {
+            const response = `${api.defaults.baseURL}`;
             return response
         } catch (err) {
             console.log(err)
@@ -26,6 +41,15 @@ export default {
             console.log(err)
         }
     },
+    async ChangeImage(Classid,data, config) {
+        try {
+            api.put(`/updateImage/${Classid}`, data,config);
+            console.log(data)
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    
     async getDesignAulas(type){
         try {
             const response =api.get(`/findClassesByType/${type}`);

@@ -4,7 +4,7 @@ import TT from '../../assets/Union.svg'
 interface BannerName{
     Title:String;
 }
-export default function Banner({Title}:any){
+export default function Banner({Title}:BannerName){
     return(
         <BannerView >
             <a style={{zIndex: 1}} href="/">

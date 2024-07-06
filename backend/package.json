@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "seed": "ts-node src/seeders/seed.ts",
     "seedDelete": "ts-node src/seeders/deleteseed.ts",
-    "start": "npx ts-node-dev --transpile-only --no-notify server.ts"
+    "start": "npm run seed && npx ts-node-dev --transpile-only --no-notify server.ts"
   },
   "prisma": {
     "schema": "src/models/schema.prisma"

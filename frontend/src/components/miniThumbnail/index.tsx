@@ -1,26 +1,36 @@
-import React from 'react';
 import { AulaImg, LockImg, ThumbnailBottom, ThumbnailContainer, ThumbnailTextContainer, ThumbnailTitle, ThumbnailView } from "./styled";
 import Locked from '../../assets/fi_home.svg';
-import DsAula from '../../assets/DS-aula.png';
+import { useEffect, useState } from "react";
+import userServices from "../../services/userServices";
 
 interface ThumbnailProps {
   Title: string;
   Monitor: string;
-  Image: any;
+  imageUrl: any;
   Link: string;
   PDF: string;
   Lock: string;
   onGo: (link: string) => void;
 }
 
-export default function MiniThumb({ Title, Monitor, Image, Link, PDF, Lock, onGo }: ThumbnailProps) {
+export default function MiniThumb({ Title, Monitor, imageUrl, Link, PDF, Lock, onGo }: ThumbnailProps) {
 
   const handleClick = () => {
     if (Lock !== 'bloqueado') {
       onGo(Link);
     }
-    // You can add an else condition here if needed
-  };
+   
+  }; 
+  const [imageApi, setImageApi] = useState('')
+  useEffect(() => {
+      userServices.getImage().then((response) => {
+        if (response) {
+        
+          setImageApi(response);
+        
+        }
+      });
+    }, []);
 
   return (
     <ThumbnailView onClick={handleClick}>
@@ -34,7 +44,7 @@ export default function MiniThumb({ Title, Monitor, Image, Link, PDF, Lock, onGo
           </ThumbnailTitle>
         </ThumbnailTextContainer>
       </ThumbnailBottom>
-      {Image === '' ? null : <AulaImg src={Image} locked={Lock} />} {/* Adjust image source handling */}
+      {imageUrl && (<AulaImg  src={`${imageApi}/${imageUrl}`} locked={Lock} />)} 
     </ThumbnailView>
   );
 }

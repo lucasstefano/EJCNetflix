@@ -14,7 +14,7 @@ export const ThumbnailView = styled.a`
     border-top-left-radius: 13px; /* 20px * 0.65 */
     border-radius: 6.5px; /* 10px * 0.65 */
     background: #000000;
-    opacity: 0.5;
+    opacity: 0.4;
     display: flex;
     border: 1px solid grey;
     margin: 0px 16px 20px 16px;
@@ -24,18 +24,16 @@ export const ThumbnailView = styled.a`
 
     }
     
-    
 `;
 
 export const AulaImg = styled.img<ThumbnailImgProps>`
     width: 100%; /* 150px * 0.65 */
     height: 100%; /* 150px * 0.65 */
     position: absolute;
-    opacity: ${props => (props.locked ? '0.2' : '1')};
+    opacity: ${props => (props.locked === 'bloqueado' ? '0.2' : '0.8')};
     transition: opacity 0.3s ease;
     
 `;
-
 
 export const LockImg = styled.img`
     width: 80px; /* 150px * 0.65 */

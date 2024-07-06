@@ -36,7 +36,7 @@ export const ScreenView = styled.div`
 
 `;
 
-export const ButtonView = styled.div`
+export const ButtonsView = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -148,13 +148,4 @@ export const BackgroundImage = styled.img<BackgroundImageProps>`
     opacity: 0.9;
     background-image: url(${(props) => props.src});
     z-index: -1;
-`;
-
-export const BackgroundImageG = styled.img<BackgroundImageProps>`
-    position: absolute;
-    background-image: url(${(props) => props.src});
-    z-index: -2;
-    width: 100vw;
-    height: 100vh;
-    opacity: 0.2;
 `;

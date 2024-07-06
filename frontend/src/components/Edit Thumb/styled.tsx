@@ -19,18 +19,14 @@ text-decoration: none;
     box-shadow: 0 8px 10px 2px rgba(0, 0, 0, 0.2); /* 10px * 0.65 */
 `;
 
-export const LockImg = styled.img`
-    width: 97.5px; /* 150px * 0.65 */
-    height: 97.5px; /* 150px * 0.65 */
-    position: absolute;
-`;
-
 export const ThumbnailContainer = styled.div`
     width: 100%;
     height: 100%;
+    background: #001238;
     align-items: center;
     justify-content: center;
-    display: flex;
+    display: block;
+    position: relative;
 `;
 
 export const ThumbnailImg = styled.img<ThumbnailImgProps>`
@@ -42,8 +38,8 @@ export const ThumbnailImg = styled.img<ThumbnailImgProps>`
 
 
 export const ThumbnailBottom = styled.div`
-    width: 292.5px; /* 450px * 0.65 */
-    height: 166px; /* 146px * 0.65 */
+     width: 292.5px; /* 450px * 0.65 */
+    height: 150px; /* 146px * 0.65 */
     align-self: flex-end;
     background: linear-gradient(#22A2F2, #2287F3);
     display: flex;
@@ -75,32 +71,17 @@ export const ThumbnailMonitor = styled.div`
     color: white;
 `;
 
-export const ThumbnailButtonContainer = styled.div`
-    display: flex;
-    align-items: center;
-    padding: 0 13px;
-    justify-content: center;
-    flex-direction: column;
-    gap: 13px; /* 20px * 0.65 */
+export const ThumbnailArea = styled.div`
+    font-size: 13px; /* 20px * 0.65 */
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    opacity: 1;
+    color: white;
 `;
 
-export const ThumbnailButton = styled.a`
-    width: 32px; /* 50px * 0.65 */
-    height: 32px; /* 50px * 0.65 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(#22A2F2, #2287F3);
-    border-radius: 100%;
-    box-shadow: 0 3px 3px 1px rgba(0, 0, 0, 0.2); /* 10px * 0.65 */
-    &:hover{
-        background: linear-gradient(#146698,#144c87);
 
-    }
-    
-`;
-
-export const ThumbnailIcon = styled.img`
-    width: 15.6px; /* 24px * 0.65 */
-    height: 15.6px; /* 24px * 0.65 */
+export const Image = styled.img`
+  display: block;
+  max-width: 100%;
+  height: 100%;
 `;

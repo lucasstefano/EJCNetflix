@@ -171,3 +171,12 @@ export const ThumbnailContainer = styled.div`
   flex-wrap: wrap;
   gap: 10px;
 `;
+
+export const SearchBar = styled.input`
+  width: 30%;
+  padding: 10px;
+  margin: 20px 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+`;

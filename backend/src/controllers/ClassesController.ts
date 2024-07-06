@@ -4,30 +4,30 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 // Criar Aula
-export const createTTClass = async (req: Request, res: Response) => {
-  const { type, title, monitor, ytLink, pdfLink, lock, data } = req.body;
+export const createClass = async (req: Request, res: Response) => {
+  const { type, title, monitor, imageUrl, ytLink, pdfLink, lock, data } = req.body;
   try {
-    const newTTClass = await prisma.classes.create({
+    const newClass = await prisma.classes.create({
       data: {
         type,
         title,
         monitor,
+        imageUrl,
         ytLink,
         pdfLink,
         lock,
         data,
       },
     });
-    res.status(201).json(newTTClass);
-    console.log(newTTClass)
+    res.json(newClass);
   } catch (error) {
-    res.status(500).json({ error: 'Unable to create class' });
+    res.status(500).json({ error: 'Erro ao criar a classe.' });
   }
 };
-
 // Deletar uma Aula
 export const deleteClass = async (req: Request, res: Response) => {
-  const classId = parseInt(req.params.id);
+  const classId = parseInt(req.params.id); // Captura o ID a partir dos parâmetros da requisição
+
   try {
     await prisma.classes.delete({
       where: { id: classId },
@@ -102,10 +102,7 @@ export const getAllClasses = async (req: Request, res: Response) => {
 export const updateTTClass = async (req: Request, res: Response) => {
   const id = req.params.id;
   const { type, title, monitor, ytLink, pdfLink, lock, data } = req.body;
-  let imageUrl = '';
-  if (req.file) {
-    imageUrl = req.file.path; // Caminho da imagem salva pelo Multer
-  }
+ 
 
   try {
     const updatedClass = await prisma.classes.update({
@@ -118,6 +115,27 @@ export const updateTTClass = async (req: Request, res: Response) => {
         pdfLink,
         lock,
         data,
+       
+      },
+    });
+    console.log(updatedClass)
+    res.json(updatedClass);
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao atualizar a classe' });
+  }
+};
+
+export const updateImage = async (req: Request, res: Response) => {
+  const id = req.params.id;
+  let imageUrl = '';
+  if (req.file) {
+    imageUrl = req.file.path; // Caminho da imagem salva pelo Multer
+  }
+
+  try {
+    const updatedClass = await prisma.classes.update({
+      where: { id: parseInt(id) },
+      data: {
         imageUrl,
       },
     });

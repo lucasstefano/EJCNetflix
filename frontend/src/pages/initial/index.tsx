@@ -8,7 +8,7 @@ import {
     WelcomeImg1,
     WelcomeImg2,
     BackgroundImage,
-    ButtonView,
+    ButtonsView,
     WelcomeImgContainer,
 } from "./style";
 import DesignLogo from '../../assets/PenNib.svg';
@@ -22,7 +22,7 @@ import BGI3 from '../../assets/Group 17.svg';
 export default function InitialPage() {
     return (
         <ScreenView>
-            <ButtonView>
+            <ButtonsView>
             <WelcomeImgContainer>
             <WelcomeImg1 src={BemVindoImg}></WelcomeImg1>
             <WelcomeImg2 src={EJCNETFLIXImg}></WelcomeImg2>
@@ -41,7 +41,7 @@ export default function InitialPage() {
                     <AreaText>Sou</AreaText>
                     <AreaTextBold>Desenvolvedor</AreaTextBold>
                 </AreaContainer>
-            </ButtonView>
+            </ButtonsView>
             
             <BackgroundImage src={BGI1} position='bottom-left'></BackgroundImage>
             <BackgroundImage src={BGI2} position='top-right'></BackgroundImage>

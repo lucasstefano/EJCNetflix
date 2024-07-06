@@ -25,13 +25,6 @@ export const RightSide = styled.div`
   }
 `;
 
-export const AulasContainer = styled.div`
-    padding: 0 0px 26px 0px; /* 40px * 0.65 */
-    display: flex; 
-
-
-`;
-
 export const TitleContainer = styled.div`
     flex-direction: column;
     margin: 0 0 26px 0; /* 40px * 0.65 */
@@ -59,23 +52,10 @@ export const BGImg = styled.img`
     z-index: -1; 
 `;
 
-export const BGImgSword = styled.img`
-    position: absolute;
-    top: 0;
-    z-index: -1; 
-`;
-
-export const BGCUTImg = styled.img`
-    position: absolute;
-    right: 0;
-    bottom: -507px; /* -780px * 0.65 */
-    z-index: -1; 
-`;
-
 export const CronoImg = styled.img`
-    width: 35px; /* 100px * 0.65 */
-    height: 35px; /* 100px * 0.65 */
-   
+    width: 65px; /* 100px * 0.65 */
+    height: 65px; /* 100px * 0.65 */
+
 `;
 
 export const TopContainer = styled.div`
@@ -85,34 +65,7 @@ export const TopContainer = styled.div`
     justify-content: space-between;
 `;
 
-export const BackgroundImage = styled.img`
-    position: absolute;
-    opacity: 0.9;
-    width: 50%;
-    height: 50%;
-    bottom: 0px;
-    right: 0px;
-   
-`;
 
-export const BackgroundImage2 = styled.img`
-    position: absolute;
-    opacity: 0.9;
-    width: 100%;
-    height: 100vh;
-    left: -380px;
-    bottom: 0px;
-
-    
-`;
-export const BackgroundImageG = styled.img<BackgroundImageProps>`
-    position: absolute;
-    background-image: url(${(props) => props.src});
-    z-index: -2;
-    width: 100vw;
-    height: 100vh;
-    opacity: 0.2;
-`;
 export const ModalBackground = styled.div`
   display: block;
   position: fixed;
@@ -151,7 +104,6 @@ export const CloseButton = styled.button`
   cursor: pointer;
   color: white;
 `;
-
 
 export const CalendarButton = styled.button`
   width: 65px; /* 100px * 0.65 */
