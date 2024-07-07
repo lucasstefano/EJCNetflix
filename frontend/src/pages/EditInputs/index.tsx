@@ -182,6 +182,7 @@ export default function EditForms() {
           {formImgData.imagemUrl !== '' ?(
             <Image src={`http://localhost:3333/${formImgData.imagemUrl}`} alt='Se não aparecer, dê F5'/>):(<h1 style={{color:'white'}}>NO IMG</h1>)}
           </ImageContainer>
+          <br></br>
           <InputImg type="file" name="imagemUrl" id="fileUpload" onChange={handleChange} />
        <ButtonContainer>
         <UploadButton htmlFor="fileUpload">Selecionar Imagem</UploadButton>

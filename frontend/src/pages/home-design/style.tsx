@@ -15,8 +15,8 @@ export const RightSide = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background:  linear-gradient(90deg,#22A2F2,#f5f5f5,#2287F3);
-  opacity: 0.1; 
+  background:  linear-gradient(90deg,#22A2F2,#22A2F2,#2287F3);
+  opacity: 0.4; 
   z-index: -1; 
 }
 `;

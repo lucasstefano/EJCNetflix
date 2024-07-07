@@ -2,7 +2,7 @@ import styled from "styled-components";
 import 'fontsource-poppins';
 export const ScreenView = styled.div`
   display: flex;
-  background: #212124;
+  background: #001238;
   height: 100vh;
   flex-direction: row;
 `;
