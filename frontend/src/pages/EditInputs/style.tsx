@@ -43,7 +43,7 @@ export const InputImg = styled.input`
   display: none;
 `;
 export const UploadButton = styled.label`
-  background-color: #007bff;
+  background-color: #0e3db3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,7 +109,7 @@ export const Select = styled.select`
 export const Button = styled.button`
   padding: 10px 20px;
   margin-top: 20px;
-  background-color: #0e3db3;
+  background: #0e3db3;
   color: #ffffff;
   border: none;
   border-radius: 4px;

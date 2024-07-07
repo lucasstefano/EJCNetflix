@@ -29,7 +29,7 @@ export default function EditPage(){
     }).catch((error) => {
       console.error("Error fetching classes:", error);
     });
-  }, [ ,change]);
+  }, []);
 
   const handleCreation = () => {
     const datax = {
