@@ -1,33 +1,36 @@
 import { Request, Response } from 'express';
-import { PrismaClient } from '@prisma/client';
+import { Prisma, PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
 // Criar Aula
-export const createClass = async (req: Request, res: Response) => {
-  const { type, title, monitor, imageUrl, ytLink, pdfLink, lock, data } = req.body;
+export const createTTClass = async (req: Request, res: Response) => {
+  const { type, title, monitor, ytLink, pdfLink, lock, data } = req.body;
   try {
-    const newClass = await prisma.classes.create({
-      data: {
-        type,
-        title,
-        monitor,
-        imageUrl,
-        ytLink,
-        pdfLink,
-        lock,
-        data,
-      },
+    console.log(req.body)
+    const classInput: Prisma.ClassesCreateInput = {
+      type,
+      title,
+      monitor,
+      ytLink,
+      pdfLink,
+      lock,
+      data,
+    };
+    
+    const newTTClass = await prisma.classes.create({
+      data: classInput
     });
-    res.json(newClass);
+    res.status(201).json(newTTClass);
+    console.log(newTTClass)
   } catch (error) {
-    res.status(500).json({ error: 'Erro ao criar a classe.' });
+    res.status(500).json({ error: 'Unable to create class' });
   }
 };
+
 // Deletar uma Aula
 export const deleteClass = async (req: Request, res: Response) => {
-  const classId = parseInt(req.params.id); // Captura o ID a partir dos parâmetros da requisição
-
+  const classId = parseInt(req.params.id);
   try {
     await prisma.classes.delete({
       where: { id: classId },
@@ -100,9 +103,8 @@ export const getAllClasses = async (req: Request, res: Response) => {
 
 // Atualizar Aula
 export const updateTTClass = async (req: Request, res: Response) => {
-  const id = req.params.id;
-  const { type, title, monitor, ytLink, pdfLink, lock, data } = req.body;
- 
+
+  const { id, type, title, monitor, ytLink, pdfLink, lock, data } = req.body;
 
   try {
     const updatedClass = await prisma.classes.update({
@@ -115,33 +117,32 @@ export const updateTTClass = async (req: Request, res: Response) => {
         pdfLink,
         lock,
         data,
-       
       },
     });
-    console.log(updatedClass)
     res.json(updatedClass);
   } catch (error) {
     res.status(500).json({ error: 'Erro ao atualizar a classe' });
   }
 };
 
-export const updateImage = async (req: Request, res: Response) => {
-  const id = req.params.id;
-  let imageUrl = '';
-  if (req.file) {
-    imageUrl = req.file.path; // Caminho da imagem salva pelo Multer
-  }
-
+export const addPictureClass = async (req: Request, res: Response) => {
   try {
+    const { id } = req.params;
+    if (!req.file) {
+      return res
+        .status(400)
+        .json({ message: "Não foi feito o upload de nenhuma foto" });
+    }
+    const path = process.env.App_URL + '/uploads/' + req.file.filename;
+    const pictureInput: Prisma.ClassesUpdateInput = {
+      imageUrl: path,
+    }
     const updatedClass = await prisma.classes.update({
       where: { id: parseInt(id) },
-      data: {
-        imageUrl,
-      },
+      data: pictureInput,
     });
-    console.log(updatedClass)
-    res.json(updatedClass);
+    return res.status(200).json(updatedClass);
   } catch (error) {
-    res.status(500).json({ error: 'Erro ao atualizar a classe' });
+    res.status(500).json({ error: 'Erro ao adicionar a imagem' });
   }
-};
+}

@@ -12,6 +12,8 @@ model User {
   username String @unique
   password String
   role     String
+
+  @@map("user")
 }
 
 model Classes {
@@ -24,4 +26,6 @@ model Classes {
   pdfLink  String
   lock     String
   data     String
+  
+  @@map("classes")
 }
