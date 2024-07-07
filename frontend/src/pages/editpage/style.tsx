@@ -7,7 +7,7 @@ interface BackgroundImageProps {
 
 export const RightSide = styled.div`    
     position: relative;
-    height: 100%;
+  
     &::before {
     content: '';
     position: absolute;
@@ -16,13 +16,10 @@ export const RightSide = styled.div`
     width: 100%;
     height: 100vh;
     padding-bottom: 60px;
-    background-image: url(${BGI});
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.5; /* Adjust the opacity value as needed */
-    z-index: -1; /* Ensure the background is behind the content */
-  }
+    background:   #2287F3;
+    opacity: 0.4; 
+    z-index: -1; 
+    }
 `;
 
 export const InputContainer = styled.div`
@@ -167,6 +164,7 @@ export const Container = styled.div`
 
 export const ThumbnailContainer = styled.div`
   display: flex;
+  margin-left: 2vw;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 10px;

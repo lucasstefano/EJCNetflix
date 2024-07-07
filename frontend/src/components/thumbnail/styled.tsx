@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import 'fontsource-poppins';
-
+import BGI from '../../assets/ThumbnailBG.svg'
 export const Image = styled.img`
   display: block;
   max-width: 100%;
@@ -9,12 +9,13 @@ export const Image = styled.img`
 
 export const ImageLock = styled.div`    
     position: absolute;
-  width: 100%;
-  display: flex;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  background: #000000b0;
+    width: 100%;
+    display: flex;
+    height: 100%;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    background: #000000b0;
 
 `;
 
@@ -32,9 +33,10 @@ export const ThumbnailView = styled.div`
 `;
 
 export const LockImg = styled.img`
-    width: 97.5px; /* 150px * 0.65 */
-    height: 97.5px; /* 150px * 0.65 */
+    width: 110px; /* 150px * 0.65 */
+    height: 110px; /* 150px * 0.65 */
     position: absolute;
+    z-index: 0;
 `;
 
 export const ThumbnailContainer = styled.div`
@@ -62,6 +64,14 @@ export const ThumbnailBottom = styled.div`
     border-bottom-right-radius: 6px; /* 20px * 0.65 */
     border-bottom-left-radius: 6px; /* 20px * 0.65 */
     flex-direction: row;
+    position: relative;
+    background-image: url(${BGI});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    
+    
 `;
 
 export const ThumbnailTextContainer = styled.div`
@@ -83,9 +93,10 @@ export const ThumbnailMonitor = styled.div`
     font-size: 13px; /* 20px * 0.65 */
     font-weight: 500;
     font-family: 'Poppins', sans-serif;
-    opacity: 0.6;
+    opacity: 0.7;
     color: white;
 `;
+
 
 export const ThumbnailButtonContainer = styled.div`
     display: flex;

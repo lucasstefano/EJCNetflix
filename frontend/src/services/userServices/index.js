@@ -1,6 +1,5 @@
 import api from '../api'
 
-
 export default {
     async CreateClass(data) {
         try {
@@ -66,19 +65,6 @@ export default {
             
         } catch (e) {
             console.log(e)
-        }
-    },
-    async updateClass(id, Data) {
-        
-        try {
-            await api.put(`/updateClass/${id}`, Data, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-        } catch (err) {
-            console.error('Erro ao enviar avatar:', err);
-            throw err;
         }
     },
       

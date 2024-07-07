@@ -26,12 +26,9 @@ export const ScreenView = styled.div`
     left: 0;
     width: 100%;
     height: 100vh;
-    background-image: url(${BGI});
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.5; /* Adjust the opacity value as needed */
-    z-index: -1; /* Ensure the background is behind the content */
+    background:   #2287F3;
+    opacity: 0.5; 
+    z-index: -1; 
   }
 
 `;
@@ -62,7 +59,7 @@ export const AreaButton = styled.a`
     border-radius: 100%;
     border: 0px;
     text-decoration: none;
-    background: linear-gradient(#22A2F2,#2287F3);
+    background: linear-gradient(-45deg,#22A2F2,#2287F3);
     box-shadow: 0 10px 14px rgba(0, 0, 0, 0.3);
     &:hover {
         background: linear-gradient(#146698,#144c87);;

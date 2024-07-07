@@ -4,7 +4,7 @@ import ArrowRight from '../../assets/Vector.svg';
 import EditThumbnail from '../../components/Edit Thumb';
 import { Container, ReturnArrow, RightSide, SubMessage, ThumbnailContainer, SearchBar } from './style';
 
-const UpdateClassForm = () => {
+export default function EditPage(){
   const [change, setChange] = useState('');
   const [data, setData] = useState([{
     id: 0,
@@ -44,6 +44,7 @@ const UpdateClassForm = () => {
     };
     UserServices.CreateClass(datax).then(() => {
       setChange('nova Aula');
+      window.location.reload();
     }).catch((error) => {
       console.error("Error creating class:", error);
     });
@@ -89,4 +90,3 @@ const UpdateClassForm = () => {
   );
 };
 
-export default UpdateClassForm;

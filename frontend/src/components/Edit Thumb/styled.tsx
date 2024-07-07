@@ -8,11 +8,9 @@ interface ThumbnailImgProps {
 export const ThumbnailView = styled.a`
 text-decoration: none;
     position: relative;
-    width: 292.5px; /* 450px * 0.65 */
-    height: 260.9px; /* 386px * 0.65 */
-    flex-direction: column;
-    border-bottom-right-radius: 13px; /* 20px * 0.65 */
-    border-bottom-left-radius: 13px; /* 20px * 0.65 */
+    width: 392.5px; /* 450px * 0.65 */
+    height: 100.9px; /* 386px * 0.65 */
+    flex-direction: row;
     background: #001238;
     display: flex;
     margin: 0px 16px 20px 16px;
@@ -38,27 +36,26 @@ export const ThumbnailImg = styled.img<ThumbnailImgProps>`
 
 
 export const ThumbnailBottom = styled.div`
-     width: 292.5px; /* 450px * 0.65 */
-    height: 150px; /* 146px * 0.65 */
+    width: 475px; /* 450px * 0.65 */
+    height: 100%; /* 146px * 0.65 */
     align-self: flex-end;
     background: linear-gradient(#22A2F2, #2287F3);
     display: flex;
-    border-bottom-right-radius: 6px; /* 20px * 0.65 */
-    border-bottom-left-radius: 6px; /* 20px * 0.65 */
     flex-direction: row;
 `;
 
 export const ThumbnailTextContainer = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 3px; /* 10px * 0.65 */
+
     width: 100%;
-    padding: 13px 13px 0px 13px; /* 20px * 0.65 */
+    padding: 13px 4px 0px 13px; /* 20px * 0.65 */
 `;
 
 export const ThumbnailTitle = styled.text`
-    font-size: 16.9px; /* 26px * 0.65 */
+    font-size: 15px; /* 26px * 0.65 */
     font-weight: 600;
+    line-height: 20px;
     font-family: 'Poppins', sans-serif;
     color: white;
 `;

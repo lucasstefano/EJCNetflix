@@ -1,12 +1,14 @@
 import Banner from "../../components/Header";
 import Thumbnail from "../../components/thumbnail";
-import { CloseButton, ModalBackground, ModalContent, RightSide, SubLine, TitleAulas, TitleContainer, TopContainer } from "./style";
+import { BackgroundImage, BackgroundImage2, CalendarButton, CloseButton, CronogramText, CronogramView, CronoImg, ModalBackground, ModalContent, RightSide, SubLine, TitleAulas, TitleContainer, TopContainer } from "./style";
 import { ScrollingCarousel } from '@trendyol-js/react-carousel';
 import { useEffect, useState } from "react";
 import YoutubeComponent from "../../components/youtubeComponent";
 import UserServices from "../../services/userServices/index";
 import MiniThumb from "../../components/MiniThumbnail";
-
+import calendarIcon from "../../assets/CalendarIcon.svg";
+import BGI1 from '../../assets/SwordRight.svg';
+import BGI2 from '../../assets/BG-WAVE.svg'
 interface Aula {
     data: string;
     title: string;
@@ -94,7 +96,10 @@ export default function HomeDev() {
             <RightSide>
                 <TopContainer>
                     <Banner Title={'Desenvolvimento'}></Banner>
-                    {/*<CalendarButton><CronoImg src={calendarIcon}/></CalendarButton>*/}
+                    <CronogramView>
+                    <CalendarButton  href={'https://docs.google.com/spreadsheets/d/1KvILc92hjfUPnJiKQdax0aPpm7yR6ZYe3It0_d2dYO8/edit?usp=sharing'} target="_blank" rel="noopener noreferrer"><CronoImg src={calendarIcon}/></CalendarButton>
+                    <CronogramText>cronograma</CronogramText>
+                    </CronogramView>
                 </TopContainer>
                 <TitleContainer>
                     <TitleAulas>Aula da semana 15/07</TitleAulas>
@@ -133,7 +138,9 @@ export default function HomeDev() {
 
 
 
-
+                <BackgroundImage src={BGI1} ></BackgroundImage>
+                <BackgroundImage2 src={BGI2} ></BackgroundImage2>
+ 
             </RightSide>
         </>
     )

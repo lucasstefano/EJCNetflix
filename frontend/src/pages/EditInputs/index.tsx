@@ -20,7 +20,7 @@ interface FormImgData {
   imagemUrl?: File | null | string; // Adicionado campo para o arquivo de imagem
 }
 
-const ModelForms: React.FC = () => {
+export default function EditForms() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [ImageChange, setImageChange] = useState('parado')
@@ -180,7 +180,7 @@ const ModelForms: React.FC = () => {
         <Form>
           <ImageContainer>
           {formImgData.imagemUrl !== '' ?(
-            <Image src={`http://localhost:3333/${formImgData.imagemUrl}`} />):(<h1 style={{color:'white'}}>NO IMG</h1>)}
+            <Image src={`http://localhost:3333/${formImgData.imagemUrl}`} alt='Se não aparecer, dê F5'/>):(<h1 style={{color:'white'}}>NO IMG</h1>)}
           </ImageContainer>
           <InputImg type="file" name="imagemUrl" id="fileUpload" onChange={handleChange} />
        <ButtonContainer>
@@ -232,4 +232,3 @@ const ModelForms: React.FC = () => {
   );
 };
 
-export default ModelForms;

@@ -26,9 +26,11 @@ const YoutubeComponent: React.FC<YoutubeComponentProps> = ({ LinkVideo }) => {
     };
   }, []);
 
+  const isMobile = windowDimensions.width < 768;
+
   const opts: YouTubeProps['opts'] = {
-    height: String(windowDimensions.height * 0.7), // Ajusta a altura para 50% da altura da janela
-    width: String(windowDimensions.width * 0.8), // Ajusta a largura para 80% da largura da janela
+    height: isMobile ? String(windowDimensions.height * 0.4) : String(windowDimensions.height * 0.7), // Ajusta a altura para 40% da altura da janela em dispositivos móveis
+    width: isMobile ? String(windowDimensions.width * 0.9) : String(windowDimensions.width * 0.8), // Ajusta a largura para 90% da largura da janela em dispositivos móveis
     playerVars: {
       autoplay: 0,
     },

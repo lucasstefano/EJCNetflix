@@ -1,20 +1,23 @@
 import Banner from "../../components/Header";
 import Thumbnail from "../../components/thumbnail";
-import { CloseButton, ModalBackground, ModalContent, RightSide, SubLine, TitleAulas, TitleContainer, TopContainer } from "./style";
+import { BackgroundImage, BackgroundImage2, CalendarButton, CloseButton, CronogramText, CronogramView, CronoImg, ModalBackground, ModalContent, RightSide, SubLine, TitleAulas, TitleContainer, TopContainer } from "./style";
 import { ScrollingCarousel } from '@trendyol-js/react-carousel';
 import { useEffect, useState } from "react";
 import YoutubeComponent from "../../components/youtubeComponent";
 import UserServices from "../../services/userServices/index";
 import MiniThumb from "../../components/MiniThumbnail";
-
+import calendarIcon from "../../assets/CalendarIcon.svg";
+import BGI1 from '../../assets/BG-ESPADA.svg';
+import BGI2 from '../../assets/BG-WAVE.svg'
 interface Aula {
+    data: string;
     title: string;
     monitor: string;
     imageUrl: string;
     ytLink: string;
     pdfLink: string;
     lock: string;
-    data: string;
+    // outros campos, se houver
 }
 
 export default function Home() {
@@ -26,10 +29,9 @@ export default function Home() {
     }
     const closeModal = () => setModalOpen(false);
     const changeLink = (link: string) => {
-        console.log(link);
+        console.log(link);  // Para verificar o valor recebido
         setTheLink(link);
     };
-
     const [WeekOne, setWeekOne] = useState<Aula[]>([]);
     const [WeekTwo, setWeekTwo] = useState<Aula[]>([]);
 
@@ -49,22 +51,21 @@ export default function Home() {
                     const firstTwoDigits = parseInt(item.data.substring(0, 2));
                     return firstTwoDigits >= 22 && firstTwoDigits <= 26;
                 });
-
+    
                 const sortedWeekOne = semanaUmData.sort((a: Aula, b: Aula) => {
                     const dateA = parseInt(a.data.substring(0, 2));
                     const dateB = parseInt(b.data.substring(0, 2));
                     return dateA - dateB;
                 });
-
                 const sortedWeekTwo = semanaDoisData.sort((a: Aula, b: Aula) => {
                     const dateA = parseInt(a.data.substring(0, 2));
                     const dateB = parseInt(b.data.substring(0, 2));
                     return dateA - dateB;
                 });
-
+      
                 setWeekOne(sortedWeekOne);
                 setWeekTwo(sortedWeekTwo);
-
+              
             }
         });
     }, []);
@@ -85,7 +86,10 @@ export default function Home() {
             <RightSide>
                 <TopContainer>
                     <Banner Title={'Design'}></Banner>
-                    {/*<CalendarButton><CronoImg src={calendarIcon}/></CalendarButton>*/}
+                    <CronogramView>
+                    <CalendarButton  href={'https://docs.google.com/spreadsheets/d/1KvILc92hjfUPnJiKQdax0aPpm7yR6ZYe3It0_d2dYO8/edit?usp=sharing'} target="_blank" rel="noopener noreferrer"><CronoImg src={calendarIcon}/></CalendarButton>
+                    <CronogramText>cronograma</CronogramText>
+                    </CronogramView>
                 </TopContainer>
                 <TitleContainer>
                     <TitleAulas>Aula da semana 15/07</TitleAulas>
@@ -98,6 +102,8 @@ export default function Home() {
                 </ScrollingCarousel>
 
 
+
+
                 <TitleContainer>
                     <TitleAulas>Aula da semana 22/07</TitleAulas>
                     <SubLine></SubLine>
@@ -108,6 +114,10 @@ export default function Home() {
                     ))}
                 </ScrollingCarousel>
 
+
+                <BackgroundImage src={BGI1} ></BackgroundImage>
+                <BackgroundImage2 src={BGI2} ></BackgroundImage2>
+ 
             </RightSide>
         </>
     )
