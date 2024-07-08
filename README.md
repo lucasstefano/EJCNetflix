@@ -1,9 +1,7 @@
 # EJCNetflix | EJCM
-*Esse é o modelo de ReadMe para os projetos da EJ, feito com a finalidade de padronizar a documentação técnica da empresa. Em cada tópico você verá uma explicação do que deve ser escrito e você deverá personalizar os tópicos de acordo com o seu projeto.*
- 
+
 **Status do Projeto** : Terminado 
 
-*Deixe um ou dois badges com as frameworks ou linguagens utilizadas*
 
 ![Badge](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Badge](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
