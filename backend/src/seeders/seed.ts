@@ -12,7 +12,7 @@ async function main() {
       data: [
         { type: 'Ambos', title: 'Design Thinking', monitor: 'Vinny', imageUrl: `${process.env.App_URL}/uploads/img-aula-1720449817227-784751029.png`, ytLink: '0m5yi7oJZ1M', pdfLink: 'https://drive.google.com/file/d/1JaanbdUFJvrZeyL1Eixtit8PW-ILC86b/view', lock: 'bloqueado', data: '15/07/24' },
         { type: 'Design', title: 'UX Design I', monitor: 'Ellis', imageUrl: `${process.env.App_URL}/uploads/img-aula-1720449817227-784751029.png`, ytLink: 'ffb-AuG8P5E', pdfLink: 'https://drive.google.com/file/d/1v4tGRunHas4QhCCPyTqKTVUA_osjxzE2/view', lock: 'bloqueado', data: '15/07/24' },
-        { type: 'Dev', title: 'Introdução a Computação', monitor: 'Lucas AlAlam', imageUrl: `${process.env.App_URL}/uploads/img-aula-1720449817227-784751029.png`, ytLink: '', pdfLink: '', lock: 'bloqueado', data: '15/07/24' },
+        { type: 'Dev', title: 'Introdução a Computação', monitor: 'Lucas Al Alam', imageUrl: `${process.env.App_URL}/uploads/img-aula-1720449817227-784751029.png`, ytLink: '', pdfLink: '', lock: 'bloqueado', data: '15/07/24' },
         { type: 'Design', title: 'O Desenvolvimento na EJCM', monitor: 'Lucas Pinheiro', imageUrl: `${process.env.App_URL}/uploads/img-aula-1720449817227-784751029.png`, ytLink: '', pdfLink: '', lock: 'bloqueado', data: '15/07/24' },
         { type: 'Design', title: 'UI Design I', monitor: 'Camila', imageUrl: `${process.env.App_URL}/uploads/img-aula-1720449817227-784751029.png`, ytLink: '', pdfLink: '', lock: 'bloqueado', data: '16/07/24' },
         { type: 'Design', title: 'UX Design II', monitor: 'Anielly', imageUrl: `${process.env.App_URL}/uploads/img-aula-1720449817227-784751029.png`, ytLink: '', pdfLink: '', lock: 'bloqueado', data: '16/07/24' },
@@ -30,7 +30,7 @@ async function main() {
         { type: 'Design', title: 'Criar: User Flow e User Stories', monitor: 'Patricia', imageUrl: `${process.env.App_URL}/uploads/img-aula-1720449817227-784751029.png`, ytLink: '', pdfLink: '', lock: 'bloqueado', data: '19/07/24' },
         { type: 'Dev', title: 'Typescript', monitor: 'Danilo', imageUrl: `${process.env.App_URL}/uploads/img-aula-1720449817227-784751029.png`, ytLink: '', pdfLink: '', lock: 'bloqueado', data: '19/07/24' },
         { type: 'Ambos', title: 'Movimento Empresa Junior', monitor: 'Danielly Muniz', imageUrl: `${process.env.App_URL}/uploads/img-aula-1720449817227-784751029.png`, ytLink: '', pdfLink: '', lock: 'bloqueado', data: '22/07/24' },
-        { type: 'Ambos', title: 'Diversidade e Inclusão', monitor: 'Vinny & Ani', imageUrl: `${process.env.App_URL}/uploads/img-aula-1720449817227-784751029.png`, ytLink: '', pdfLink: '', lock: 'bloqueado', data: '22/07/24' },
+        { type: 'Ambos', title: 'Diversidade e Inclusão', monitor: 'Comitê de D&I', imageUrl: `${process.env.App_URL}/uploads/img-aula-1720449817227-784751029.png`, ytLink: '', pdfLink: '', lock: 'bloqueado', data: '22/07/24' },
         { type: 'Ambos', title: 'Wordpress I', monitor: 'Leonardo', imageUrl: `${process.env.App_URL}/uploads/img-aula-1720449817227-784751029.png`, ytLink: '', pdfLink: '', lock: 'bloqueado', data: '22/07/24' },
         { type: 'Ambos', title: 'WordPress II', monitor: 'Instrutor', imageUrl: `${process.env.App_URL}/uploads/img-aula-1720449817227-784751029.png`, ytLink: '', pdfLink: '', lock: 'bloqueado', data: '23/07/24' },
         { type: 'Dev', title: 'Introdução ao React', monitor: 'Bruna Nobrega', imageUrl: `${process.env.App_URL}/uploads/img-aula-1720449817227-784751029.png`, ytLink: '', pdfLink: '', lock: 'bloqueado', data: '23/07/24' },
