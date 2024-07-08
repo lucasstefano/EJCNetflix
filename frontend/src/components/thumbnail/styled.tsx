@@ -15,7 +15,7 @@ export const ImageLock = styled.div`
     gap: 10px;
     align-items: center;
     justify-content: center;
-    background: #000000b0;
+    background: #000000dd;
 
 `;
 

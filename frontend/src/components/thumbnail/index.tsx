@@ -25,21 +25,12 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ Title, Monitor, imageUrl, Link, P
             EnviarLink(Link);
         }
     };
-    const [imageApi, setImageApi] = useState('')
-    useEffect(() => {
-        userServices.getImage().then((response) => {
-          if (response) {
-          
-            setImageApi(response);
-          
-          }
-        });
-      }, []);
+
     return (
         <ThumbnailView>
             <ThumbnailContainer>
                 {Lock === 'bloqueado' ? (<ImageLock><LockImg src={Locked} /></ImageLock>) : (null)}
-                {imageUrl && (<Image src={`${imageApi}/${imageUrl}`}></Image>)}
+                {imageUrl && (<Image src={`${imageUrl}`}></Image>)}
 
             </ThumbnailContainer>
             <ThumbnailBottom>

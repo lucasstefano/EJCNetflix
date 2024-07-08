@@ -21,17 +21,6 @@ export default function MiniThumb({ Title, Monitor, imageUrl, Link, PDF, Lock, o
     }
    
   }; 
-  const [imageApi, setImageApi] = useState('')
-  useEffect(() => {
-      userServices.getImage().then((response) => {
-        if (response) {
-        
-          setImageApi(response);
-        
-        }
-      });
-    }, []);
-
   return (
     <ThumbnailView onClick={handleClick}>
       <ThumbnailContainer>
@@ -44,7 +33,7 @@ export default function MiniThumb({ Title, Monitor, imageUrl, Link, PDF, Lock, o
           </ThumbnailTitle>
         </ThumbnailTextContainer>
       </ThumbnailBottom>
-      {imageUrl && (<AulaImg  src={`${imageApi}/${imageUrl}`} locked={Lock} />)} 
+      {imageUrl && (<AulaImg  src={`${imageUrl}`} locked={Lock} />)} 
     </ThumbnailView>
   );
 }
