@@ -40,7 +40,7 @@ export default function EditPage(){
       ytLink: '',
       pdfLink: '',
       lock: 'bloqueado',
-      data: '15/07/24'
+      data: '00/07/24'
     };
     UserServices.CreateClass(datax).then(() => {
       setChange('nova Aula');

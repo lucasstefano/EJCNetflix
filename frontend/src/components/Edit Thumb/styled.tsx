@@ -5,6 +5,16 @@ interface ThumbnailImgProps {
     locked: string;
 }
 
+export const ImageBorder = styled.div`    
+    position: absolute;
+    width: 100%;
+    display: flex; 
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#fefefe1b,#01010132);
+
+`;
 export const ThumbnailView = styled.a`
 text-decoration: none;
     position: relative;

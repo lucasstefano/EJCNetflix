@@ -47,10 +47,6 @@ export default function EditForms() {
         const response = await UserServices.getSpecific(formData.id);
         if (response && response.data) {
           const data = response.data;
-          setFormImgData({
-            id: data.id,
-            imagemUrl: data.imageUrl, // Limpar qualquer imagem anteriormente selecionada
-          });
           setFormData({
             id: data.id,
             type: data.type,
@@ -61,7 +57,6 @@ export default function EditForms() {
             lock: data.lock === 'bloqueado',
             data: data.data.toString(),
           });
-        
         }
       } catch (error) {
         console.error('Error fetching class data:', error);
@@ -138,13 +133,9 @@ export default function EditForms() {
        const formDataToSend = new FormData();
        formDataToSend.append('id', String(formImgData.id));
        formDataToSend.append('imagemUrl', '');
- 
-       const config = { headers: { 'Content-Type': 'multipart/form-data' } }
-       await UserServices.ChangeImage(formData.id, formDataToSend, config);
+       await UserServices.DeleteImage(formData.id);
        setImageChange('apagou');
-      
-
-      console.log('Imagem deletada com sucesso!');
+       console.log('Imagem deletada com sucesso!');
 
     } catch (error) {
       console.error('Erro ao deletar imagem:', error);
@@ -159,6 +150,24 @@ export default function EditForms() {
     userServices.DeleteClass(id)
     navigate('/')
   }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await UserServices.getSpecific(formData.id);
+        if (response && response.data) {
+          const data = response.data;
+          setFormImgData({
+            id: data.id,
+            imagemUrl: data.imageUrl, // Limpar qualquer imagem anteriormente selecionada
+          });
+        }
+      } catch (error) {
+        console.error('Error fetching class data:', error);
+      }
+    };
+    fetchData();
+  }, [handleDeleteImage,handleChange]);
   return (
     <>
     {deleteModal === true ? (
@@ -180,7 +189,7 @@ export default function EditForms() {
         <Form>
           <ImageContainer>
           {formImgData.imagemUrl !== '' ?(
-            <Image src={`http://localhost:3333/${formImgData.imagemUrl}`} alt='Se não aparecer, dê F5'/>):(<h1 style={{color:'white'}}>NO IMG</h1>)}
+            <Image src={`${formImgData.imagemUrl}`} alt='IMG'/>):(<h1 style={{color:'white'}}>NO IMG</h1>)}
           </ImageContainer>
           <br></br>
           <InputImg type="file" name="imagemUrl" id="fileUpload" onChange={handleChange} />

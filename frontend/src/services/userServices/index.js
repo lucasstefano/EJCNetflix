@@ -3,7 +3,6 @@ import api from '../api'
 export default {
     async CreateClass(data) {
         try {
-            console.log(data)
             api.post('/CreateClass', data)
         } catch (err) {
             console.log(err)
@@ -35,7 +34,6 @@ export default {
     async ChangeClass(Classid,data, config) {
         try {
             api.put(`/updateClass/${Classid}`, data,config);
-            console.log(data)
         } catch (err) {
             console.log(err)
         }
@@ -43,7 +41,13 @@ export default {
     async ChangeImage(Classid,data, config) {
         try {
             api.put(`/updateImage/${Classid}`, data,config);
-            console.log(data)
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    async DeleteImage(Classid) {
+        try {
+            api.put(`/deleteImage/${Classid}`);
         } catch (err) {
             console.log(err)
         }
@@ -53,7 +57,6 @@ export default {
         try {
             const response =api.get(`/findClassesByType/${type}`);
             return response;
-            
         } catch (e) {
             console.log(e)
         }
@@ -62,7 +65,6 @@ export default {
         try {
             const response = api.get(`/findClassesById/${id}`);
             return response;
-            
         } catch (e) {
             console.log(e)
         }

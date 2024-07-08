@@ -5,10 +5,11 @@ import { ScrollingCarousel } from '@trendyol-js/react-carousel';
 import { useEffect, useState } from "react";
 import YoutubeComponent from "../../components/youtubeComponent";
 import UserServices from "../../services/userServices/index";
-import MiniThumb from "../../components/MiniThumbnail";
 import calendarIcon from "../../assets/CalendarIcon.svg";
 import BGI1 from '../../assets/SwordRight.svg';
 import BGI2 from '../../assets/BG-WAVE.svg'
+import MiniThumb from "../../components/miniThumbnail";
+
 interface Aula {
     data: string;
     title: string;
