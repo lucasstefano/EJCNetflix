@@ -1,12 +1,12 @@
 import Banner from "../../components/Header";
 import Thumbnail from "../../components/thumbnail";
-import { BackgroundImage, BackgroundImage2, CalendarButton, CloseButton, CronogramText, CronogramView, CronoImg, ModalBackground, ModalContent, RightSide, SubLine, TitleAulas, TitleContainer, TopContainer } from "./style";
+import { BackgroundImage, BackgroundImage2, CalendarButton, CloseButton, ContainerSearch, CronogramText, CronogramView, CronoImg, MobileSearch, ModalBackground, ModalContent, PaddingContainer, RightSide, SearchInput, SubLine, TitleAulas, TitleContainer, TopContainer } from "./style";
 import { ScrollingCarousel } from '@trendyol-js/react-carousel';
 import { useEffect, useState } from "react";
 import YoutubeComponent from "../../components/youtubeComponent";
 import UserServices from "../../services/userServices/index";
 import calendarIcon from "../../assets/CalendarIcon.svg";
-import BGI1 from '../../assets/SwordRight.svg';
+import BGI1 from '../../assets/BG-ESPADA.svg';
 import BGI2 from '../../assets/BG-WAVE.svg'
 import MiniThumb from "../../components/miniThumbnail";
 
@@ -21,9 +21,10 @@ interface Aula {
     // outros campos, se houver
 }
 
-export default function HomeDev() {
+export default function Home() {
     const [isModalOpen, setModalOpen] = useState(false);
-    const [theLink, setTheLink] = useState('')
+    const [theLink, setTheLink] = useState('');
+    const [searchTerm, setSearchTerm] = useState(''); 
 
     const openModal = () => {
         setModalOpen(true);
@@ -35,7 +36,7 @@ export default function HomeDev() {
     };
     const [WeekOne, setWeekOne] = useState<Aula[]>([]);
     const [WeekTwo, setWeekTwo] = useState<Aula[]>([]);
-    const [WeekTree, setWeekTree] = useState<Aula[]>([]);
+    const [WeekThree, setWeekThree] = useState<Aula[]>([]);
 
     useEffect(() => {
         UserServices.getDesignAulas('Dev').then(response => {
@@ -55,9 +56,9 @@ export default function HomeDev() {
                 });
                 const semanaTresData = sortedData.filter((item: { data: string; }) => {
                     const firstTwoDigits = parseInt(item.data.substring(0, 2));
-                    return firstTwoDigits >= 29 && firstTwoDigits <= 31;
+                    return firstTwoDigits >= 22 && firstTwoDigits <= 26;
                 });
-
+    
                 const sortedWeekOne = semanaUmData.sort((a: Aula, b: Aula) => {
                     const dateA = parseInt(a.data.substring(0, 2));
                     const dateB = parseInt(b.data.substring(0, 2));
@@ -68,18 +69,31 @@ export default function HomeDev() {
                     const dateB = parseInt(b.data.substring(0, 2));
                     return dateA - dateB;
                 });
-                const sortedWeekTree = semanaTresData.sort((a: Aula, b: Aula) => {
+                const sortedWeekThree = semanaDoisData.sort((a: Aula, b: Aula) => {
                     const dateA = parseInt(a.data.substring(0, 2));
                     const dateB = parseInt(b.data.substring(0, 2));
                     return dateA - dateB;
                 });
-
+      
                 setWeekOne(sortedWeekOne);
                 setWeekTwo(sortedWeekTwo);
-                setWeekTree(sortedWeekTree);
+                setWeekThree(sortedWeekThree);
+              
             }
         });
     }, []);
+     
+     const filterAulas = (aulas: Aula[]) => {
+        return aulas.filter(aula =>
+            aula.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            aula.monitor.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    };
+
+    const filteredWeekOne = filterAulas(WeekOne);
+    const filteredWeekTwo = filterAulas(WeekTwo);
+    const filteredWeekThree = filterAulas(WeekThree);
+
     return (
         <>
             {isModalOpen === true ? (
@@ -88,7 +102,7 @@ export default function HomeDev() {
                     <ModalContent>
                         <YoutubeComponent LinkVideo={theLink} />
                         <ScrollingCarousel>
-                            {[...WeekOne, ...WeekTwo, ...WeekTree].map((item, index) => (
+                            {[...WeekOne, ...WeekTwo].map((item, index) => (
                                 <MiniThumb key={index} Title={item.title} Monitor={item.monitor} imageUrl={item.imageUrl} Link={item.ytLink} PDF={item.pdfLink} Lock={item.lock} onGo={changeLink} />
                             ))}
                         </ScrollingCarousel>
@@ -97,47 +111,63 @@ export default function HomeDev() {
             <RightSide>
                 <TopContainer>
                     <Banner Title={'Desenvolvimento'}></Banner>
+                    <ContainerSearch>
+                        <SearchInput
+                            type="text"
+                            placeholder="Buscar aulas..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
                     <CronogramView>
                     <CalendarButton  href={'https://docs.google.com/spreadsheets/d/1KvILc92hjfUPnJiKQdax0aPpm7yR6ZYe3It0_d2dYO8/edit?usp=sharing'} target="_blank" rel="noopener noreferrer"><CronoImg src={calendarIcon}/></CalendarButton>
                     <CronogramText>cronograma</CronogramText>
                     </CronogramView>
+                    </ContainerSearch>
                 </TopContainer>
-                <TitleContainer>
-                    <TitleAulas>Aula da semana 15/07</TitleAulas>
-                    <SubLine></SubLine>
-                </TitleContainer>
+                <MobileSearch
+                            type="text"
+                            placeholder="Buscar aulas..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
+                <PaddingContainer>
+                {filteredWeekOne.length > 0 && (
+                    <TitleContainer>
+                        <TitleAulas>Aula da semana 15/07</TitleAulas>
+                        <SubLine></SubLine>
+                    </TitleContainer>
+                )}
                 <ScrollingCarousel>
-                    {WeekOne.map((item, index) => (
+                    {filteredWeekOne.map((item, index) => (
                         <Thumbnail key={index} Title={item.title} Monitor={item.monitor} imageUrl={item.imageUrl} Link={item.ytLink} PDF={item.pdfLink} Lock={item.lock} EnviarLink={changeLink} AbrirVideo={openModal} />
                     ))}
                 </ScrollingCarousel>
 
 
-
-
-                <TitleContainer>
-                    <TitleAulas>Aula da semana 22/07</TitleAulas>
-                    <SubLine></SubLine>
-                </TitleContainer>
+                {filteredWeekTwo.length > 0 && (
+                    <TitleContainer>
+                        <TitleAulas>Aula da semana 22/07</TitleAulas>
+                        <SubLine></SubLine>
+                    </TitleContainer>
+                )}
                 <ScrollingCarousel>
-                    {WeekTwo.map((item, index) => (
+                    {filteredWeekTwo.map((item, index) => (
                         <Thumbnail key={index} Title={item.title} Monitor={item.monitor} imageUrl={item.imageUrl} Link={item.ytLink} PDF={item.pdfLink} Lock={item.lock} EnviarLink={changeLink} AbrirVideo={openModal} />
                     ))}
                 </ScrollingCarousel>
 
-
-
-                <TitleContainer>
-                    <TitleAulas>Aula da semana 29/07</TitleAulas>
-                    <SubLine></SubLine>
-                </TitleContainer>
+                {filteredWeekThree.length > 0 && (
+                    <TitleContainer>
+                        <TitleAulas>Aula da semana 29/07</TitleAulas>
+                        <SubLine></SubLine>
+                    </TitleContainer>
+                )}
                 <ScrollingCarousel>
-                    {WeekTree.map((item, index) => (
+                    {filteredWeekThree.map((item, index) => (
                         <Thumbnail key={index} Title={item.title} Monitor={item.monitor} imageUrl={item.imageUrl} Link={item.ytLink} PDF={item.pdfLink} Lock={item.lock} EnviarLink={changeLink} AbrirVideo={openModal} />
                     ))}
                 </ScrollingCarousel>
-
-
+                </PaddingContainer>
 
                 <BackgroundImage src={BGI1} ></BackgroundImage>
                 <BackgroundImage2 src={BGI2} ></BackgroundImage2>

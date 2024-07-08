@@ -30,6 +30,9 @@ export const ThumbnailView = styled.div`
     display: flex;
     margin: 0px 16px 20px 16px;
     box-shadow: 0 8px 10px 2px rgba(0, 0, 0, 0.2); /* 10px * 0.65 */
+    @media (max-width: 768px) {
+        box-shadow: 0 8px 10px 2px rgba(0, 0, 0, 0.3); 
+    }
 `;
 
 export const LockImg = styled.img`
