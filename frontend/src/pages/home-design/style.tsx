@@ -7,18 +7,66 @@ interface BackgroundImageProps {
 
 export const RightSide = styled.div`    
    position: relative;
-  
-  &::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+    width: 100%;
   height: 100%;
-  background:  linear-gradient(90deg,#22A2F2,#22A2F2,#2287F3);
-  opacity: 0.4; 
-  z-index: -1; 
-}
+`;
+
+export const PaddingContainer = styled.div` 
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 120vh;
+    @media (max-width: 768px) {
+        height: 100vh;
+    }
+`;
+
+
+// Adicione este estilo para o campo de busca
+export const SearchInput = styled.input`
+    width: 15vw;
+    padding: 10px 12px 10px 12px;
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 100px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    &:focus {
+    outline: none;
+    }
+    @media (max-width: 768px) {
+        display: none;
+    }
+
+`;
+
+export const MobileSearch = styled.input`
+    width: 90%;
+    padding: 10px 0px 10px 12px;
+    margin: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 100px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    &:focus {
+    outline: none;
+    }
+    @media (min-width: 768px) {
+        display: none;
+    }
+
+`;
+
+
+export const ContainerSearch = styled.div`
+   align-items: center;
+   justify-content: center;
+   display: flex;
+   margin-right: 25px; /* 20px * 0.65 */
+   gap: 20px;
+   @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 export const TitleContainer = styled.div`
@@ -121,13 +169,16 @@ export const CronogramView = styled.div`
     gap: 6px;
     align-items: center;
     justify-content: center;
-    margin-right: 25px; /* 20px * 0.65 */
+    margin-right: 0px; /* 20px * 0.65 */
 `;
 
 export const CronogramText = styled.text`
     font-size: 16.2px; /* 48px * 0.65 */
     font-weight: 700;
     color: #ffffff;
+    @media (max-width: 768px) {
+       display: none;
+    }
 `;
 
 export const BackgroundImage = styled.img`
