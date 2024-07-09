@@ -19,6 +19,7 @@ export default function EditThumbnail({ Title, Monitor, Link,imageUrl, Type }:Th
             </ThumbnailContainer>
             <ThumbnailBottom>
                 <ThumbnailTextContainer>
+                    <ThumbnailArea>{Type}</ThumbnailArea>
                     <ThumbnailTitle>{Title}</ThumbnailTitle>
                     <ThumbnailMonitor>{Monitor}</ThumbnailMonitor>
                 </ThumbnailTextContainer>
