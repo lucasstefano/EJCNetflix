@@ -56,7 +56,7 @@ export default function Home() {
                 });
                 const semanaTresData = sortedData.filter((item: { data: string; }) => {
                     const firstTwoDigits = parseInt(item.data.substring(0, 2));
-                    return firstTwoDigits >= 22 && firstTwoDigits <= 26;
+                    return firstTwoDigits >= 29 && firstTwoDigits <= 31;
                 });
     
                 const sortedWeekOne = semanaUmData.sort((a: Aula, b: Aula) => {
@@ -69,7 +69,7 @@ export default function Home() {
                     const dateB = parseInt(b.data.substring(0, 2));
                     return dateA - dateB;
                 });
-                const sortedWeekThree = semanaDoisData.sort((a: Aula, b: Aula) => {
+                const sortedWeekThree = semanaTresData.sort((a: Aula, b: Aula) => {
                     const dateA = parseInt(a.data.substring(0, 2));
                     const dateB = parseInt(b.data.substring(0, 2));
                     return dateA - dateB;
