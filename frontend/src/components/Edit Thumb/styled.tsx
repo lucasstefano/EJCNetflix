@@ -1,46 +1,30 @@
 import styled from "styled-components";
 import 'fontsource-poppins';
-import BGI from '../../assets/ThumbnailBG.svg'
-export const Image = styled.img`
-  display: block;
-  max-width: 100%;
-  height: 100%;
-`;
+import BGI from '../../assets/FundoG.svg'
+interface ThumbnailImgProps {
+    locked: string;
+}
 
-export const ImageLock = styled.div`    
+export const ImageBorder = styled.div`    
     position: absolute;
     width: 100%;
-    display: flex;
+    display: flex; 
     height: 100%;
-    gap: 10px;
     align-items: center;
     justify-content: center;
-    background: #000000dd;
+    background: linear-gradient(#fefefe1b,#01010132);
 
 `;
-
 export const ThumbnailView = styled.a`
+text-decoration: none;
     position: relative;
-    text-decoration: none;
-    position: relative;
-    width: 292.5px; /* 450px * 0.65 */
-    height: 260.9px; /* 386px * 0.65 */
-    flex-direction: column;
-    border-bottom-right-radius: 13px; /* 20px * 0.65 */
-    border-bottom-left-radius: 13px; /* 20px * 0.65 */
-    background: #000000;
+    width: 392.5px; /* 450px * 0.65 */
+    height: 100.9px; /* 386px * 0.65 */
+    flex-direction: row;
+    background: #001238;
     display: flex;
+    margin: 0px 16px 20px 16px;
     box-shadow: 0 8px 10px 2px rgba(0, 0, 0, 0.2); /* 10px * 0.65 */
-    @media (max-width: 768px) {
-        box-shadow: 0 8px 10px 2px rgba(0, 0, 0, 0.3); 
-    }
-`;
-
-export const LockImg = styled.img`
-    width: 110px; /* 150px * 0.65 */
-    height: 110px; /* 150px * 0.65 */
-    position: absolute;
-    z-index: 0;
 `;
 
 export const ThumbnailContainer = styled.div`
@@ -53,94 +37,58 @@ export const ThumbnailContainer = styled.div`
     position: relative;
 `;
 
-export const ThumbnailImg = styled.img`
-
-
+export const ThumbnailImg = styled.img<ThumbnailImgProps>`
+    width: 100%;
+    height: auto;
+    opacity: ${props => (props.locked === 'bloqueado' ? '0.2' : '1')};
+    transition: opacity 0.3s ease;
 `;
 
 
 export const ThumbnailBottom = styled.div`
-    width: 292.5px; /* 450px * 0.65 */
-    height: 150px; /* 146px * 0.65 */
+    width: 475px; /* 450px * 0.65 */
+    height: 100%; /* 146px * 0.65 */
     align-self: flex-end;
     background: linear-gradient(#22A2F2, #2287F3);
     display: flex;
-    border-bottom-right-radius: 6px; /* 20px * 0.65 */
-    border-bottom-left-radius: 6px; /* 20px * 0.65 */
     flex-direction: row;
-    position: relative;
-  
-    
 `;
 
 export const ThumbnailTextContainer = styled.div`
     display: flex;
     flex-direction: column;
+
     width: 100%;
-    padding: 10px 13px 0px 13px; /* 20px * 0.65 */
+    padding: 13px 4px 0px 13px; /* 20px * 0.65 */
 `;
 
 export const ThumbnailTitle = styled.text`
-    font-size: 22px; /* 26px * 0.65 */
+    font-size: 15px; /* 26px * 0.65 */
     font-weight: 600;
-    margin-bottom: 6px;
+    line-height: 20px;
     font-family: 'Poppins', sans-serif;
-    line-height: 22px;
     color: white;
 `;
 
 export const ThumbnailMonitor = styled.div`
-    font-size: 16px; /* 20px * 0.65 */
+    font-size: 13px; /* 20px * 0.65 */
     font-weight: 500;
     font-family: 'Poppins', sans-serif;
-    opacity: 0.7;
+    opacity: 0.6;
+    color: white;
+`;
+
+export const ThumbnailArea = styled.div`
+    font-size: 13px; /* 20px * 0.65 */
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    opacity: 1;
     color: white;
 `;
 
 
-export const ThumbnailButtonContainer = styled.div`
-    display: flex;
-    align-items: center;
-    padding: 0 13px;
-    justify-content: center;
-    flex-direction: column;
-    gap: 13px; /* 20px * 0.65 */
-`;
-
-export const ThumbnailButton = styled.a`
-    width: 32px; /* 50px * 0.65 */
-    height: 32px; /* 50px * 0.65 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(#22A2F2, #2287F3);
-    border-radius: 100%;
-    box-shadow: 0 3px 3px 1px rgba(0, 0, 0, 0.2); /* 10px * 0.65 */
-    &:hover{
-        background: linear-gradient(#146698,#144c87);
-
-    }
-    
-`;
-
-export const ThumbnailIcon = styled.img`
-    width: 15.6px; /* 24px * 0.65 */
-    height: 15.6px; /* 24px * 0.65 */
-`;
-
-export const ImageBorder = styled.div`    
-    position: absolute;
-    width: 100%;
-    display: flex; 
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(#fefefe1b,#01010132);
-
-`;export const ThumbnailArea = styled.div`
-font-size: 13px; /* 20px * 0.65 */
-font-weight: 500;
-font-family: 'Poppins', sans-serif;
-opacity: 1;
-color: white;
+export const Image = styled.img`
+  display: block;
+  max-width: 100%;
+  height: 100%;
 `;

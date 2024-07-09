@@ -164,15 +164,14 @@ export const Container = styled.div`
 
 export const ThumbnailContainer = styled.div`
   display: flex;
-
+  margin-left: 2vw;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 30px;
-  margin: 20px 20px;
+  gap: 10px;
 `;
 
 export const SearchBar = styled.input`
-  width: 20%;
+  width: 30%;
   padding: 10px;
   margin: 20px 20px;
   box-sizing: border-box;
