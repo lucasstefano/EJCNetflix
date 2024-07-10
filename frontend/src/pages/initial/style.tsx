@@ -52,6 +52,7 @@ export const ButtonsView = styled.div`
 
 export const AreaButton = styled.a`
     display: flex;
+    user-select: none;
     align-items: center;
     justify-content: center;
     width: 15vw;
@@ -92,7 +93,7 @@ export const AreaText = styled.p`
     font-weight: 400;
     margin: 10px 0 0 0;
     font-family: 'Poppins', sans-serif;
-    
+    user-select: none;
 `;
 
 export const AreaTextBold = styled.p`
@@ -101,9 +102,11 @@ export const AreaTextBold = styled.p`
     font-weight: 700;
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    user-select: none;
 `;
 
 export const WelcomeImgContainer = styled.div`
+    user-select: none;
     display: flex;
     flex-direction: column;
     align-items: center;

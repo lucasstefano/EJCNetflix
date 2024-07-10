@@ -78,6 +78,7 @@ export const ThumbnailTitle = styled.text`
     color: white;
     font-family: 'Poppins', sans-serif;
     z-index: 1;
+    user-select: none;
 `;
 
 export const ThumbnailMonitor = styled.div`
