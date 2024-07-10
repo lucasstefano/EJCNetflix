@@ -22,7 +22,7 @@ export default function EditPage(){
   useEffect(() => {
     UserServices.getAllAulas().then((response) => {
       if (response?.data) {
-        const sortedData = response.data.sort((a: { id: number; }, b: { id: number; }) => b.id - a.id);
+        const sortedData = response.data.sort((a: { id: number; }, b: { id: number; }) => a.id - b.id);
         setData(sortedData);
         console.log(sortedData);
       }
