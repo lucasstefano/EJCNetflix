@@ -1,6 +1,6 @@
 import Banner from "../../components/Header";
 import Thumbnail from "../../components/thumbnail";
-import { BackgroundImage, BackgroundImage2, CalendarButton, CloseButton, ContainerSearch, CronogramText, CronogramView, CronoImg, MobileSearch, ModalBackground, ModalContent, PaddingContainer, RightSide, SearchInput, SubLine, TitleAulas, TitleContainer, TopContainer } from "./style";
+import { BackgroundImage, BackgroundImage2, CalendarButton, CloseButton, CronogramText, CronogramView, CronoImg, ModalBackground, ModalContent, RightSide, SubLine, TitleAulas, TitleContainer, TopContainer } from "./style";
 import { ScrollingCarousel } from '@trendyol-js/react-carousel';
 import { useEffect, useState } from "react";
 import YoutubeComponent from "../../components/youtubeComponent";
@@ -24,7 +24,7 @@ interface Aula {
 export default function Home() {
     const [isModalOpen, setModalOpen] = useState(false);
     const [theLink, setTheLink] = useState('');
-    const [searchTerm, setSearchTerm] = useState(''); 
+    const [searchTerm, setSearchTerm] = useState('');
 
     const openModal = () => {
         setModalOpen(true);
@@ -58,7 +58,7 @@ export default function Home() {
                     const firstTwoDigits = parseInt(item.data.substring(0, 2));
                     return firstTwoDigits >= 29 && firstTwoDigits <= 31;
                 });
-    
+
                 const sortedWeekOne = semanaUmData.sort((a: Aula, b: Aula) => {
                     const dateA = parseInt(a.data.substring(0, 2));
                     const dateB = parseInt(b.data.substring(0, 2));
@@ -74,25 +74,16 @@ export default function Home() {
                     const dateB = parseInt(b.data.substring(0, 2));
                     return dateA - dateB;
                 });
-      
+
                 setWeekOne(sortedWeekOne);
                 setWeekTwo(sortedWeekTwo);
                 setWeekThree(sortedWeekThree);
-              
+
             }
         });
     }, []);
-     
-     const filterAulas = (aulas: Aula[]) => {
-        return aulas.filter(aula =>
-            aula.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            aula.monitor.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-    };
 
-    const filteredWeekOne = filterAulas(WeekOne);
-    const filteredWeekTwo = filterAulas(WeekTwo);
-    const filteredWeekThree = filterAulas(WeekThree);
+
 
     return (
         <>
@@ -111,67 +102,40 @@ export default function Home() {
             <RightSide>
                 <TopContainer>
                     <Banner Title={'Desenvolvimento'}></Banner>
-                    <ContainerSearch>
-                        <SearchInput
-                            type="text"
-                            placeholder="Buscar aulas..."
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
                     <CronogramView>
-                    <CalendarButton  href={'https://docs.google.com/spreadsheets/d/1KvILc92hjfUPnJiKQdax0aPpm7yR6ZYe3It0_d2dYO8/edit?usp=sharing'} target="_blank" rel="noopener noreferrer"><CronoImg src={calendarIcon}/></CalendarButton>
-                    <CronogramText>cronograma</CronogramText>
+                        <CalendarButton href={'https://docs.google.com/spreadsheets/d/1KvILc92hjfUPnJiKQdax0aPpm7yR6ZYe3It0_d2dYO8/edit?usp=sharing'} target="_blank" rel="noopener noreferrer"><CronoImg src={calendarIcon} /></CalendarButton>
+                        <CronogramText>cronograma</CronogramText>
                     </CronogramView>
-                    </ContainerSearch>
                 </TopContainer>
-                <MobileSearch
-                            type="text"
-                            placeholder="Buscar aulas..."
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
-                <PaddingContainer>
-                {filteredWeekOne.length > 0 && (
-                    <TitleContainer>
-                        <TitleAulas>Aula da semana 15/07</TitleAulas>
-                        <SubLine></SubLine>
-                    </TitleContainer>
-                )}
+                <TitleContainer>
+                    <TitleAulas>Aula da semana 15/07</TitleAulas>
+                    <SubLine></SubLine>
+                </TitleContainer>
                 <ScrollingCarousel>
-                    {filteredWeekOne.map((item, index) => (
+                    {WeekOne.map((item, index) => (
                         <Thumbnail key={index} Title={item.title} Monitor={item.monitor} imageUrl={item.imageUrl} Link={item.ytLink} PDF={item.pdfLink} Lock={item.lock} EnviarLink={changeLink} AbrirVideo={openModal} />
                     ))}
                 </ScrollingCarousel>
-
-
-                {filteredWeekTwo.length > 0 && (
-                    <TitleContainer>
-                        <TitleAulas>Aula da semana 22/07</TitleAulas>
-                        <SubLine></SubLine>
-                    </TitleContainer>
-                )}
+                <TitleContainer>
+                    <TitleAulas>Aula da semana 22/07</TitleAulas>
+                    <SubLine></SubLine>
+                </TitleContainer>
                 <ScrollingCarousel>
-                    {filteredWeekTwo.map((item, index) => (
+                    {WeekTwo.map((item, index) => (
                         <Thumbnail key={index} Title={item.title} Monitor={item.monitor} imageUrl={item.imageUrl} Link={item.ytLink} PDF={item.pdfLink} Lock={item.lock} EnviarLink={changeLink} AbrirVideo={openModal} />
                     ))}
                 </ScrollingCarousel>
-
-                {filteredWeekThree.length > 0 && (
-                    <TitleContainer>
-                        <TitleAulas>Aula da semana 29/07</TitleAulas>
-                        <SubLine></SubLine>
-                    </TitleContainer>
-                )}
+                <TitleContainer>
+                    <TitleAulas>Aula da semana 29/07</TitleAulas>
+                    <SubLine></SubLine>
+                </TitleContainer>
                 <ScrollingCarousel>
-                    {filteredWeekThree.map((item, index) => (
+                    {WeekThree.map((item, index) => (
                         <Thumbnail key={index} Title={item.title} Monitor={item.monitor} imageUrl={item.imageUrl} Link={item.ytLink} PDF={item.pdfLink} Lock={item.lock} EnviarLink={changeLink} AbrirVideo={openModal} />
                     ))}
                 </ScrollingCarousel>
-                </PaddingContainer>
-
                 <BackgroundImage src={BGI1} ></BackgroundImage>
                 <BackgroundImage2 src={BGI2} ></BackgroundImage2>
- 
             </RightSide>
         </>
     )

@@ -1,8 +1,9 @@
 //api.ts
 import axios from 'axios';
+export const UrlBase = 'http://localhost:3333'
 
 const api = axios.create({
-    baseURL: 'http://localhost:3333',
+    baseURL: UrlBase,
 })
 
 export default api;

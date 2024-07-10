@@ -21,35 +21,6 @@ export const PaddingContainer = styled.div`
     }
 `;
 
-
-// Adicione este estilo para o campo de busca
-export const SearchInput = styled.input`
-    width: 15vw;
-    padding: 10px 12px 10px 12px;
-    margin: 20px 0;
-    border: 1px solid #ccc;
-    border-radius: 100px;
-    font-size: 16px;
-    font-family: 'Poppins', sans-serif;
-    &:focus {
-    outline: none;}
-    @media (max-width: 768px) {
-       display: none;
-    }
-
-`;
-
-export const ContainerSearch = styled.div`
-   align-items: center;
-   justify-content: center;
-   display: flex;
-   margin-right: 25px; /* 20px * 0.65 */
-   gap: 20px;
-   @media (max-width: 768px) {
-        flex-direction: column;
-    }
-`;
-
 export const TitleContainer = styled.div`
     flex-direction: column;
     margin: 0 0 26px 0; /* 40px * 0.65 */
@@ -143,24 +114,6 @@ export const CalendarButton = styled.a`
   color: white;
   box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.3); /* 10px * 0.65 */
 `;
-export const MobileSearch = styled.input`
-    width: 90%;
-    padding: 10px 0px 10px 12px;
-    margin: 10px 12px;
-    border: 1px solid #ccc;
-    border-radius: 100px;
-    font-size: 16px;
-    font-family: 'Poppins', sans-serif;
-    &:focus {
-    outline: none;
-    }
- 
-    @media (min-width: 768px) {
-        display: none;
-    }
-
-`;
-
 
 export const CronogramView = styled.div`
     display: flex;
@@ -168,7 +121,7 @@ export const CronogramView = styled.div`
     gap: 6px;
     align-items: center;
     justify-content: center;
-    margin: 0px; /* 20px * 0.65 */
+    margin-right: 25px; /* 20px * 0.65 */
 `;
 
 export const CronogramText = styled.text`

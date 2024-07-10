@@ -4,6 +4,7 @@ import Locked from '../../assets/fi_home.svg';
 import PlayerIcon from '../../assets/player-Icon.svg';
 import PresentationIcon from '../../assets/apresentacao-icon.svg';
 import userServices from '../../services/userServices';
+import { UrlBase } from '../../services/api';
 
 interface ThumbnailProps {
     Title: string;
@@ -30,7 +31,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ Title, Monitor, imageUrl, Link, P
         <ThumbnailView>
             <ThumbnailContainer>
                 {Lock === 'bloqueado' ? (<ImageLock><LockImg src={Locked} /></ImageLock>) : (null)}
-                {imageUrl && (<Image src={`${imageUrl}`}></Image>)}
+                {imageUrl && (<Image src={`${UrlBase}${imageUrl}`}></Image>)}
 
             </ThumbnailContainer>
             <ThumbnailBottom>

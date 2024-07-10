@@ -20,13 +20,14 @@ import BGI2 from '../../assets/Group 15.svg';
 import BGI3 from '../../assets/Group 17.svg';
 
 export default function InitialPage() {
+    
     return (
         <ScreenView>
-            <ButtonsView>
             <WelcomeImgContainer>
-            <WelcomeImg1 src={BemVindoImg}></WelcomeImg1>
-            <WelcomeImg2 src={EJCNETFLIXImg}></WelcomeImg2>
+                <WelcomeImg1 src={BemVindoImg}></WelcomeImg1>
+                <WelcomeImg2 src={EJCNETFLIXImg}></WelcomeImg2>
             </WelcomeImgContainer>
+            <ButtonsView>
                 <AreaContainer>
                     <AreaButton href="/Design">
                         <AreaIcon src={DesignLogo} />
@@ -42,7 +43,6 @@ export default function InitialPage() {
                     <AreaTextBold>Desenvolvedor</AreaTextBold>
                 </AreaContainer>
             </ButtonsView>
-            
             <BackgroundImage src={BGI1} position='bottom-left'></BackgroundImage>
             <BackgroundImage src={BGI2} position='top-right'></BackgroundImage>
             <BackgroundImage src={BGI3} position='bottom-right'></BackgroundImage>
