@@ -2,6 +2,7 @@ import { AulaImg, LockImg, ThumbnailBottom, ThumbnailContainer, ThumbnailTextCon
 import Locked from '../../assets/fi_home.svg';
 import { useEffect, useState } from "react";
 import userServices from "../../services/userServices";
+import { UrlBase } from "../../services/api";
 
 interface ThumbnailProps {
   Title: string;
@@ -33,7 +34,7 @@ export default function MiniThumb({ Title, Monitor, imageUrl, Link, PDF, Lock, o
           </ThumbnailTitle>
         </ThumbnailTextContainer>
       </ThumbnailBottom>
-      {imageUrl && (<AulaImg  src={`${imageUrl}`} locked={Lock} />)} 
+      {imageUrl && (<AulaImg  src={`${UrlBase}${imageUrl}`} locked={Lock} />)} 
     </ThumbnailView>
   );
 }

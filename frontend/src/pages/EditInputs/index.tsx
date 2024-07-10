@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Button, Form, CheckboxContainer, CheckboxInput, CheckboxLabel, Input, Select, SubMessage, Title, Image, ImageContainer, InputImg, UploadButton, ScreenView, ButtonContainer, ReturnArrow, Container, DeleteContainer, DeleteButtonContainer } from './style';
 import ArrowRight from '../../assets/Vector.svg';
 import userServices from '../../services/userServices/index';
+import { UrlBase } from '../../services/api';
 interface FormData {
   id: number;
   type: string;
@@ -189,7 +190,7 @@ export default function EditForms() {
         <Form>
           <ImageContainer>
           {formImgData.imagemUrl !== '' ?(
-            <Image src={`${formImgData.imagemUrl}`} alt='IMG'/>):(<h1 style={{color:'white'}}>NO IMG</h1>)}
+            <Image src={`${UrlBase}${formImgData.imagemUrl}`} alt='IMG'/>):(<h1 style={{color:'white'}}>NO IMG</h1>)}
           </ImageContainer>
           <br></br>
           <InputImg type="file" name="imagemUrl" id="fileUpload" onChange={handleChange} />

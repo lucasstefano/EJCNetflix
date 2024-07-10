@@ -144,7 +144,7 @@ export const addPictureClass = async (req: Request, res: Response) => {
         .status(400)
         .json({ message: "Não foi feito o upload de nenhuma foto" });
     }
-    const path = process.env.App_URL + '/uploads/' + req.file.filename;
+    const path = '/uploads/' + req.file.filename;
     const pictureInput: Prisma.ClassesUpdateInput = {
       imageUrl: path,
     }

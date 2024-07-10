@@ -109,7 +109,7 @@ export const WelcomeImgContainer = styled.div`
     align-items: center;
     gap: 6px;
     position: absolute;
-    bottom: 0px;
+    bottom: 12px;
     @media (max-width: 768px) {
         position: relative;
         
