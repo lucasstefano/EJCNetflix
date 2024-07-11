@@ -15,7 +15,6 @@ export default function App(){
         <Route path="/Design" element={<Home />} />
         <Route path="/Edit" element={<EditPage />} />
         <Route path="/update/:id" element={<EditForms />} />
-        
       </Routes>
     </Router>
   );

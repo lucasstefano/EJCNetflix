@@ -83,6 +83,8 @@ export default function EditPage(){
             Link={`/update/${item.id}`}
             imageUrl={item.imageUrl}
             Type={item.type}
+            Lock={item.lock}
+            Data={item.data}
           />
         ))}
       </ThumbnailContainer>
