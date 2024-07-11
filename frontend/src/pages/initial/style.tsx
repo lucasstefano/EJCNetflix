@@ -12,7 +12,7 @@ export const ScreenView = styled.div`
     align-items: center;
     justify-content: center;
     align-self: center;
-    gap: 90px;
+    gap: 0px;
     width: 100%;
     height: 100vh;
     position: relative;
@@ -40,7 +40,7 @@ export const ButtonsView = styled.div`
     align-self: center;
     gap: 140px;
     width: 100%;
-    height: 100vh;
+
     border-radius: 40px;
     display: flex;
     flex-direction: row;
@@ -112,9 +112,10 @@ export const WelcomeImgContainer = styled.div`
     align-items: center;
     gap: 6px;
     position: absolute;
-    bottom: 10px;
+    bottom: 60px;
     @media (max-width: 768px) {
         position: relative;
+        
         
     }
     @media (max-width: 400px) {
