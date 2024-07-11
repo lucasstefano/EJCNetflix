@@ -51,12 +51,14 @@ export const HelloMessage = styled.text`
     font-weight: 700;
     font-family: 'Poppins', sans-serif;
     z-index: 1;
+    user-select: none;
     @media (max-width: 768px) {
         font-size: 24px;
     }
 `;
 
 export const SubMessage = styled.text`
+    user-select: none;
     color: white;
     font-size: 19.5px; /* 30px * 0.65 */
     font-weight: 400;
@@ -76,6 +78,7 @@ export const SubAreaMessage = styled.text`
     font-weight: 700;
     font-family: 'Poppins', sans-serif;
     z-index: 1;
+    user-select: none;
     @media (max-width: 768px) {
         font-size: 13px;
     }
@@ -100,6 +103,7 @@ export const ReturnArrow = styled.img`
     height: 16.25px; /* 25px * 0.65 */
     z-index: 1;
     margin: 0 19.5px; /* 30px * 0.65 */
+    user-select: none;
     @media (max-width: 768px) {
         margin: 0 13px; /* 30px * 0.65 */
     }
@@ -110,6 +114,7 @@ export const TTicon = styled.img`
     height: 65px; /* 100px * 0.65 */
     margin-right: 13px; /* 20px * 0.65 */
     z-index: 1;
+    user-select: none;
     @media (max-width: 768px) {
         width: 45px; /* 100px * 0.65 */
         height: 45px; /* 100px * 0.65 */

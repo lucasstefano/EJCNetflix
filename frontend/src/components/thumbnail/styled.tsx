@@ -40,6 +40,7 @@ export const LockImg = styled.img`
     height: 110px; /* 150px * 0.65 */
     position: absolute;
     z-index: 0;
+    user-select: none;
 `;
 
 export const ThumbnailContainer = styled.div`
@@ -90,10 +91,12 @@ export const ThumbnailTitle = styled.text`
     font-family: 'Poppins', sans-serif;
     line-height: 22px;
     color: white;
+    user-select: none;
 `;
 
-export const ThumbnailMonitor = styled.div`
+export const ThumbnailMonitor = styled.text`
     font-size: 13px; /* 20px * 0.65 */
+    user-select: none;
     font-weight: 500;
     font-family: 'Poppins', sans-serif;
     opacity: 0.7;
@@ -114,6 +117,7 @@ export const ThumbnailButton = styled.a`
     width: 32px; /* 50px * 0.65 */
     height: 32px; /* 50px * 0.65 */
     display: flex;
+    user-select: none;
     align-items: center;
     justify-content: center;
     background: linear-gradient(#22A2F2, #2287F3);

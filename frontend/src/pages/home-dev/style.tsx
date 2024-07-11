@@ -99,6 +99,7 @@ export const CloseButton = styled.button`
   font-size: 1.5rem;
   cursor: pointer;
   color: white;
+  user-select: none;
 `;
 
 export const CalendarButton = styled.a`
@@ -122,6 +123,7 @@ export const CronogramView = styled.div`
     align-items: center;
     justify-content: center;
     margin-right: 25px; /* 20px * 0.65 */
+    user-select: none;
 `;
 
 export const CronogramText = styled.text`

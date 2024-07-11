@@ -14,7 +14,7 @@ export default function Banner({Title}:BannerName){
             <TextContainer>
             <HelloMessage>Olá Samurai!</HelloMessage>
             <SubContainer>
-                <SubMessage>Seja bem vindo ao nosso</SubMessage>
+                <SubMessage>Seja bem-vindo ao nosso</SubMessage>
                 <SubAreaMessage>TT de {Title}!</SubAreaMessage>
             </SubContainer>
             </TextContainer>
