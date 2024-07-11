@@ -1,7 +1,5 @@
 import { AulaImg, LockImg, ThumbnailBottom, ThumbnailContainer, ThumbnailTextContainer, ThumbnailTitle, ThumbnailView } from "./styled";
 import Locked from '../../assets/fi_home.svg';
-import { useEffect, useState } from "react";
-import userServices from "../../services/userServices";
 import { UrlBase } from "../../services/api";
 
 interface ThumbnailProps {

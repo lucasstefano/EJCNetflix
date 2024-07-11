@@ -8,13 +8,13 @@ export const ScreenView = styled.div`
 `;
 
 export const ReturnArrow = styled.img`
-    width: 16px; /* 25px * 0.65 */
-    height: 16px; /* 25px * 0.65 */
-    z-index: 1;
-    margin: 0 19.5px; /* 30px * 0.65 */
-    @media (max-width: 768px) {
-        margin: 0 13px; /* 30px * 0.65 */
-    }
+  width: 16px; /* 25px * 0.65 */
+  height: 16px; /* 25px * 0.65 */
+  z-index: 1;
+  margin: 0 19.5px; /* 30px * 0.65 */
+  @media (max-width: 768px) {
+    margin: 0 13px; /* 30px * 0.65 */
+  }
 `;
 export const Container = styled.div`
   display: flex;
@@ -42,6 +42,7 @@ export const InputImg = styled.input`
   color: white;
   display: none;
 `;
+
 export const UploadButton = styled.label`
   background-color: #0e3db3;
   display: flex;
@@ -139,20 +140,6 @@ export const CheckboxLabel = styled.label`
   color: white;
 `;
 
-export const ConfirmImageButton = styled.button`
-background-color: #4CAF50; /* Verde */
-color: white;
-padding: 10px 20px;
-border: none;
-border-radius: 4px;
-cursor: pointer;
-margin-bottom: 10px;
-transition: background-color 0.3s ease;
-
-&:hover {
-  background-color: #45a049; /* Verde mais escuro */
-}
-`;
 
 export const DeleteContainer = styled.div`
 padding:10px;

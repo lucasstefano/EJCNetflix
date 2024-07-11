@@ -78,14 +78,15 @@ export const SubmitButton = styled.button`
 export const ThumbnailImg = styled.img`
     width: 100px;
     height: 100px;
-
 `;
+
 export const ImagePreview = styled.div`
   width: 200px;
   height: 100px;
   background: linear-gradient(#22A2F2, #2287F3);
   box-shadow: 0 8px 10px 2px rgba(0, 0, 0, 0.2); /* 10px * 0.65 */
 `;
+
 export const SubMessage = styled.text`
     color: white;
     font-size: 19.5px; /* 30px * 0.65 */
@@ -100,19 +101,19 @@ export const SubMessage = styled.text`
 `;
 
 export const ReturnArrow = styled.img`
-    width: 16.25px; /* 25px * 0.65 */
-    height: 16.25px; /* 25px * 0.65 */
-    z-index: 1;
-    margin: 0 19.5px; /* 30px * 0.65 */
-    @media (max-width: 768px) {
-        margin: 0 13px; /* 30px * 0.65 */
-    }
+  width: 16.25px; /* 25px * 0.65 */
+  height: 16.25px; /* 25px * 0.65 */
+  z-index: 1;
+  margin: 0 19.5px; /* 30px * 0.65 */
+  @media (max-width: 768px) {
+    margin: 0 13px; /* 30px * 0.65 */
+  }
 `;
 export const ThumbnailTitle = styled.text`
-    font-size: 16.9px; /* 26px * 0.65 */
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif;
-    color: white;
+  font-size: 16.9px; /* 26px * 0.65 */
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  color: white;
 `;
 
 export const ModalBackground = styled.div`
@@ -164,16 +165,18 @@ export const Container = styled.div`
 
 export const ThumbnailContainer = styled.div`
   display: flex;
-  margin-left: 2vw;
+  align-items: center;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 10px;
+  margin-bottom: 30px;
+  gap: 40px 10px;
 `;
 
 export const SearchBar = styled.input`
   width: 30%;
   padding: 10px;
-  margin: 20px 20px;
+  margin: 0px 20px 20px 20px;
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 25px;
