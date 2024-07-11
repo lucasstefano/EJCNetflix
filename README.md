@@ -70,7 +70,7 @@ $ npm start
 
 ## Autores
 
-* Tech Lead - Lucas Steafno
+* Tech Lead - Lucas Stefano
 * Dev Back-end - Lucas Al Alam
 
  
