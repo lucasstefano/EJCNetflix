@@ -112,14 +112,16 @@ export const WelcomeImgContainer = styled.div`
     align-items: center;
     gap: 6px;
     position: absolute;
-    bottom: 60px;
+    bottom: 0px;
     @media (max-width: 768px) {
         position: relative;
+        margin-bottom: 20px;
         
         
     }
     @media (max-width: 400px) {
         position: relative;
+        margin-bottom: 20px;
         
     }
 `;
